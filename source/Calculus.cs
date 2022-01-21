@@ -1,4 +1,7 @@
 
+using System.Runtime.CompilerServices;
+using static Extensions;
+
 public sealed class Calculus
 {
     //-----------------------------------------------------
@@ -19,6 +22,8 @@ public sealed class Calculus
     public Calculus (double value = 0) => setValue (value);
 
     //-----------------------------------------------------
+    // uncomment for optimization
+    //[MethodImpl (INLINE)]
 
     public Calculus setValue (double value)
     {

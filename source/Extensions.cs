@@ -1,5 +1,13 @@
+using System.Runtime.CompilerServices;
 public static partial class Extensions
 {
+    //-------------------------------------------------------------------------
+    public const MethodImplOptions
+        NONE        = 0,
+        INLINE      = MethodImplOptions.AggressiveInlining,
+        OPTIMIZE    = MethodImplOptions.AggressiveOptimization,
+        ALL         = INLINE | OPTIMIZE
+        ;
     //-------------------------------------------------------------------------
     public static bool IsValid (this string value) => !String.IsNullOrEmpty (value);
     //-------------------------------------------------------------------------
