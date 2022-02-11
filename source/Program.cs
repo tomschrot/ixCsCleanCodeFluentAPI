@@ -8,13 +8,14 @@ WriteLine
 (
     Calculus
     .assign   (2.0D)
+    .DEBUG_Break ("BREAKPOINT 1")
     .square
     .root
     .add      (4.0D)
     .multiply (6.0D)
+    .DEBUG_Break ("BREAKPOINT 2")
     .operate  (Math.Sqrt)
     .operate  (Math.Pow , 2.0D)
-    // .operate  (Math.Sin)
     .value
 );
 //-----------------------------------------------------------------------------

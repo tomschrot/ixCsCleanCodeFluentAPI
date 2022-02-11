@@ -9,12 +9,14 @@ public sealed class Calculus
     //-----------------------------------------------------
     // private field
 
-    private double _value = 0D;
+    private double _value = 0.0D;
 
     //-----------------------------------------------------
     // property
 
-    public double value => _value;
+    // public double value => _value;
+
+    public double value { get => _value; }
 
     //-----------------------------------------------------
     // constructors
@@ -33,7 +35,7 @@ public sealed class Calculus
     //-----------------------------------------------------
     // members
 
-    // as property
+    // as property. These will change object's value if viewed in debugger!
     public Calculus root   => setValue ( Math.Sqrt (_value) );
     public Calculus square => setValue ( (_value * _value)  );
     public Calculus cubic  => setValue ( (_value * _value * _value)  );
@@ -54,5 +56,8 @@ public sealed class Calculus
     =>
         setValue ( operation?.Invoke (_value, value) ?? double.NaN );
 
+    //-----------------------------------------------------
+    override
+    public string ToString () => $"Value = {_value}";
     //-----------------------------------------------------
 }

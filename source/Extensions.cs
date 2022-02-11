@@ -1,4 +1,6 @@
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
+
 public static partial class Extensions
 {
     //-------------------------------------------------------------------------
@@ -9,6 +11,8 @@ public static partial class Extensions
         ALL         = INLINE | OPTIMIZE
         ;
     //-------------------------------------------------------------------------
+    [MethodImpl (ALL)]
+
     public static bool IsValid (this string value) => !String.IsNullOrEmpty (value);
     //-------------------------------------------------------------------------
     public static T[] @each <T> (this T[] array, Action<T> treat)
@@ -17,6 +21,14 @@ public static partial class Extensions
             treat (array[n]);
 
         return array;
+    }
+    //-------------------------------------------------------------------------
+    public static T DEBUG_Break <T> (this T @this, string note = "BREAKPOINT")
+    {
+        #if DEBUG
+            Debugger.Break ();
+        #endif
+        return @this;
     }
     //-------------------------------------------------------------------------
 }
